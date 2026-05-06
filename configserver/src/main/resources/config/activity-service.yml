@@ -1,0 +1,31 @@
+spring:
+
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: fitnessActivity
+
+  rabbitmq:        # ✅ MUST BE UNDER SPRING
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 8082
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+rabbitmq:          # ✅ This part is your custom properties
+  exchange:
+    name: fitness.exchange
+  queue:
+    name: activity.queue
+  routing:
+    key: activity.tracking
